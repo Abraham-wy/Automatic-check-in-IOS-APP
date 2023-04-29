@@ -6,8 +6,8 @@ const puppeteer = require('puppeteer');
 
   // 登录操作
   await page.goto('https://www.iios.fun/login');
-  await page.type('input[name="username"]', 'your_username');
-  await page.type('input[name="password"]', 'your_password');
+  await page.type('input[name="username"]', '3501654994@qq.com');
+  await page.type('input[name="password"]', '18024532933wysbd');
   await page.click('form button[type="submit"]');
   await page.waitForNavigation({ waitUntil: 'networkidle0' });
 
