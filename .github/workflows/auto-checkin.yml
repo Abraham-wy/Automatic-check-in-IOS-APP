@@ -17,5 +17,5 @@ jobs:
         run: npm install puppeteer
 
       - name: Run auto checkin
-        run: node auto-checkin.js
+        run: node .github/workflows/auto-checkin.js
       
