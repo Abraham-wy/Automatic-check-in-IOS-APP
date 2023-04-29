@@ -2,11 +2,12 @@ name: Auto Checkin
 
 on:
   schedule:
-    - cron: '0 0 * * *' # 每天 0 点自动触发
-    workflow_dispatch:
+    - cron: '21 22 * * *'
+  workflow_dispatch:
 
 jobs:
   checkin:
+    name: Auto Checkin
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -17,3 +18,4 @@ jobs:
 
       - name: Run auto checkin
         run: node auto-checkin.js
+      
