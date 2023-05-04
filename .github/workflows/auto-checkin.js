@@ -1,21 +1,20 @@
-const puppeteer = require('puppeteer');
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
 
-(async () => {
-    const browser = await puppeteer.launch({ headless: "new" });
-    const page = await browser.newPage();
+# 创建浏览器对象
+driver = webdriver.Chrome()
 
-    // 登录操作
-    await page.goto('https://www.iios.fun/login');
-    await page.waitForSelector('.gm-checkin-panel .checkin.availabel:not(.checked)', { timeout: 5000 });
-    await page.type('input[name="email"]', '3501654994@qq.com');
-    await page.type('input[name="password"]', '18024532933wysbd');
-    await page.click('button.N44eQI_9');
-    await page.waitForNavigation({ waitUntil: 'networkidle0' });
+# 打开登录页面
+driver.get("https://example.com/login")
 
-    // 签到操作
-    await page.goto('https://www.iios.fun/points');
-    await page.waitForSelector('.gm-checkin-panel .checkin.availabel:not(.checked)', { timeout: 5000 });
-    await page.waitForSelector('.gm-checkin-panel .checkin.availabel:not(.checked)');
-    await page.click('.gm-checkin-panel .checkin.availabel:not(.checked)');
-    await browser.close();
-})();
+# 输入用户名和密码
+email = driver.find_element(By.NAME, "email")
+email.send_keys("3501654994@qq.com")
+
+password = driver.find_element(By.NAME, "password")
+password.send_keys("18024532933wysbd")
+
+# 提交登录表单
+submit = driver.find_element(By.XPATH, "//button[@class='N44eQI_9']")
+submit.click()
